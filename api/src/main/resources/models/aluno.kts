@@ -1,3 +1,4 @@
+@Entity
 class Aluno(
     val nome: String,
     val nusp: String,
