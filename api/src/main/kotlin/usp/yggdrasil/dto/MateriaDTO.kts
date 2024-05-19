@@ -1,10 +1,6 @@
-enum class Tipo {
-    OBRIGATORIA,
-    ELETIVA,
-    LIVRE
-}
+package kotlin.usp.yggdrasil.dto
 
-class Materia(
+data class MateriaDTO (
     val creditoAula: Int,
     val creditoTrabalho: Int,
     val nome: String,
