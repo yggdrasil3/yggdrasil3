@@ -1,40 +1,38 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+val ktor_version: String by project
+val kotlin_version: String by project
+val logback_version: String by project
 
 plugins {
-	id("org.springframework.boot") version "3.2.3"
-	id("io.spring.dependency-management") version "1.1.4"
-	kotlin("jvm") version "1.9.22"
-	kotlin("plugin.spring") version "1.9.22"
-	kotlin("plugin.jpa") version "1.9.22"
+    kotlin("jvm") version "1.9.24"
+    id("io.ktor.plugin") version "2.2.4"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.24"
 }
 
 group = "usp"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 
-java {
-	sourceCompatibility = JavaVersion.VERSION_17
+application {
+    mainClass.set("io.ktor.server.netty.EngineMain")
+
+    val isDevelopment: Boolean = project.ext.has("development")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	runtimeOnly("org.postgresql:postgresql")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs += "-Xjsr305=strict"
-		jvmTarget = "17"
-	}
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
+    implementation("io.ktor:ktor-server-core-jvm")
+    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
+    implementation("io.ktor:ktor-server-content-negotiation-jvm")
+    implementation("org.jetbrains.exposed:exposed-core:0.41.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
+    implementation("com.h2database:h2:2.1.214")
+    implementation("io.ktor:ktor-server-netty-jvm")
+    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("io.ktor:ktor-server-config-yaml:2.2.4")
+    testImplementation("io.ktor:ktor-server-tests-jvm")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

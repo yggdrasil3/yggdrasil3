@@ -1,1 +1,1 @@
-rootProject.name = "yggdrasil"
+rootProject.name = "usp.yggdrasil"
