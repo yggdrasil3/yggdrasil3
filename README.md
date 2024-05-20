@@ -26,7 +26,19 @@ Por último, basta acessar o navegador e visualizar a página web no endereço *
 
 ### Backend
 
-...
+No diretório _api_, builde o projeto
+
+```
+./gradlew build
+```
+
+Então, inicialize o servidor
+
+```
+./gradlew run
+```
+
+Assim, a api já está funcionando e recebendo requisições. Ela pode ser visualizada no *localhost:8080*
 
 ## Anexos
 
