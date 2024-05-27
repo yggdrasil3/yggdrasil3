@@ -29,13 +29,13 @@ fun Route.alunoRoutes() {
         post {
             val aluno = call.receive<Aluno>()
             alunos.add(aluno)
-            call.respond("Aluno criado com sucesso.", status = HttpStatusCode.Created)
+            call.respond("Aluno criado com sucesso.")
         }
 
         delete("/{id}") {
             val id = call.parameters["id"] ?: return@delete call.respondText("Invalid request", status = HttpStatusCode.BadRequest)
 
-            if (alunos.removeIf(it.id == id )) {
+            if (alunos.removeIf { it.id == id }) {
                 call.respondText("Aluno removido com sucesso.", status = HttpStatusCode.Accepted)
             }
             else call.respondText("Aluno não encontrado.", status = HttpStatusCode.NotFound)
