@@ -6,7 +6,7 @@ De fato, há uma versão anterior, na qual esse projeto se inspira fortemente. O
 
 ## Como compilar
 
-Antes é necessário que você tenho o NodeJS instalado no computador.
+Antes é necessário que você tenha o NodeJS e o Kotlin instalado no computador.
 
 ### Frontend
 
@@ -43,3 +43,9 @@ Assim, a api já está funcionando e recebendo requisições. Ela pode ser visua
 ## Anexos
 
 [Diagrama UML](https://www.figma.com/file/PR940k3M5aMfohfRlHtqg5/Yggdrasil3?type=whiteboard&node-id=0-1&t=QIoK6d9Zrw5q9To9-0)
+
+## Versões usadas
+
+npm version: 10.5.0
+Kotlin version 2.0.0-release-341 (JRE 21.0.3)
+openjdk version "11.0.23" 2024-04-16 (Para MacOs)
