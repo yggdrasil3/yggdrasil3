@@ -47,5 +47,7 @@ Assim, a api já está funcionando e recebendo requisições. Ela pode ser visua
 ## Versões usadas
 
 npm version: 10.5.0
+
 Kotlin version 2.0.0-release-341 (JRE 21.0.3)
+
 openjdk version "11.0.23" 2024-04-16 (Para MacOs)
