@@ -1,7 +1,6 @@
 package usp.models
 
 import kotlinx.serialization.Serializable
-import usp.responses.AlunoResponse
 import java.util.*
 
 @Serializable
