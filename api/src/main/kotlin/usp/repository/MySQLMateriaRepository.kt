@@ -14,10 +14,6 @@ class MySQLMateriaRepository: MateriaRepository {
         TODO("Not yet implemented")
     }
 
-    override fun deleteMateriasById(id: String): Boolean {
-        TODO("Not yet implemented")
-    }
-
     override fun addMateria(materia: Materia): Materia {
         TODO("Not yet implemented")
     }
