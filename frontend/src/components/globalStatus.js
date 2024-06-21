@@ -6,8 +6,8 @@ import { useFreeSubjects } from "../context/freeContext";
 
 export const GlobalStatus = () => {
   const { getMandatorySubjects } = useMandatorySubjects();
-  //   const { getElectiveSubjects } = useElectiveSubjects();
-  //   const { getFreeSubjects } = useFreeSubjects();
+  const { getElectiveSubjects } = useElectiveSubjects();
+  const { getFreeSubjects } = useFreeSubjects();
 
   useEffect(() => {
     console.log(getMandatorySubjects().length.toString());
@@ -34,13 +34,13 @@ export const GlobalStatus = () => {
       <CreditBar
         creditType="Eletiva"
         color="#00D0FF"
-        // creditEarned={getElectiveSubjects().length.toString()}
+        creditEarned={getElectiveSubjects().length.toString()}
         creditRequired="56"
       />
       <CreditBar
         creditType="Livre"
         color="#00E1CF"
-        // creditEarned={getFreeSubjects().length.toString()}
+        creditEarned={getFreeSubjects().length.toString()}
         creditRequired="24"
       />
     </div>

@@ -6,7 +6,7 @@ export const useFreeSubjects = () => {
   return useContext(FreeSubjectsContext);
 };
 
-export const SubjectsProvider = ({ children }) => {
+export const FreeSubjectsProvider = ({ children }) => {
   const [completedSubjects, setCompletedSubjects] = useState([]);
 
   const setFreeSubjects = (code) => {

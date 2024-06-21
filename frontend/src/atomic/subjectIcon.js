@@ -7,7 +7,9 @@ export const SubjectIcon = (props) => {
   const [done, setDone] = useState(false);
 
   const handleClick = () => {
-    setMandatorySubjects(props.subjectCode);
+    if (props.type === "mandatory") {
+      setMandatorySubjects(props.subjectCode);
+    }
 
     done ? setDone(false) : setDone(true);
   };

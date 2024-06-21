@@ -6,7 +6,7 @@ export const useMandatorySubjects = () => {
   return useContext(MandatorySubjectsContext);
 };
 
-export const SubjectsProvider = ({ children }) => {
+export const MandatorySubjectsProvider = ({ children }) => {
   const [completedSubjects, setCompletedSubjects] = useState([]);
 
   const setMandatorySubjects = (code) => {

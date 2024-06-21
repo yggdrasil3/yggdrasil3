@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState } from "react";
 
-const ElectiveSubjectsContext = createContext();
+const ScienceSubjectsContext = createContext();
 
-export const useElectiveSubjects = () => {
-  return useContext(ElectiveSubjectsContext);
+export const useScienceSubjects = () => {
+  return useContext(ScienceSubjectsContext);
 };
 
-export const ElectiveSubjectsProvider = ({ children }) => {
+export const ScienceSubjectsProvider = ({ children }) => {
   const [completedSubjects, setCompletedSubjects] = useState([]);
 
-  const setElectiveSubjects = (code) => {
+  const setScienceSubjects = (code) => {
     setCompletedSubjects((prevSubjects) => {
       if (!prevSubjects.includes(code)) {
         return [...prevSubjects, code];
@@ -19,15 +19,15 @@ export const ElectiveSubjectsProvider = ({ children }) => {
     });
   };
 
-  const getElectiveSubjects = () => {
+  const getScienceSubjects = () => {
     return completedSubjects;
   };
 
   return (
-    <ElectiveSubjectsContext.Provider
-      value={{ setElectiveSubjects, getElectiveSubjects, completedSubjects }}
+    <ScienceSubjectsContext.Provider
+      value={{ setScienceSubjects, getScienceSubjects, completedSubjects }}
     >
       {children}
-    </ElectiveSubjectsContext.Provider>
+    </ScienceSubjectsContext.Provider>
   );
 };

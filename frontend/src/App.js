@@ -8,27 +8,42 @@ import { OptativasEstatisticaSection } from "./components/optativasEstatisticasS
 import { OptativasHumanidadesSection } from "./components/optativasHumanidadesSection";
 import { OptativasSection } from "./components/optativasSection";
 import { OptativasStatus } from "./components/optativasStatus";
-import { SubjectsProvider } from "./context/mandatoryContext";
+import { ElectiveSubjectsProvider } from "./context/electiveContext";
+import { FreeSubjectsProvider } from "./context/freeContext";
+import { HumanidadesSubjectsProvider } from "./context/humanidadesContext";
+import { MandatorySubjectsProvider } from "./context/mandatoryContext";
+import { ScienceSubjectsProvider } from "./context/scienceContext";
+import { StatisticsSubjectsProvider } from "./context/statisticsContext";
 
 function App() {
   return (
-    <SubjectsProvider>
-      <Nav />
-      <div id="Dashboard">
-        <GlobalStatus />
-        <OptativasStatus />
-        <Actions />
-      </div>
-      <div id="Obrigatórias">
-        <ObrigatoriasSection />
-        <OptativasHumanidadesSection />
-        <OptativasCienciasSection />
-        <OptativasEstatisticaSection />
-      </div>
-      <div id="Optativas">
-        <OptativasSection />
-      </div>
-    </SubjectsProvider>
+    <HumanidadesSubjectsProvider>
+      <ScienceSubjectsProvider>
+        <StatisticsSubjectsProvider>
+          <FreeSubjectsProvider>
+            <ElectiveSubjectsProvider>
+              <MandatorySubjectsProvider>
+                <Nav />
+                <div id="Dashboard">
+                  <GlobalStatus />
+                  <OptativasStatus />
+                  <Actions />
+                </div>
+                <div id="Obrigatórias">
+                  <ObrigatoriasSection />
+                  <OptativasHumanidadesSection />
+                  <OptativasCienciasSection />
+                  <OptativasEstatisticaSection />
+                </div>
+                <div id="Optativas">
+                  <OptativasSection />
+                </div>
+              </MandatorySubjectsProvider>
+            </ElectiveSubjectsProvider>
+          </FreeSubjectsProvider>
+        </StatisticsSubjectsProvider>
+      </ScienceSubjectsProvider>
+    </HumanidadesSubjectsProvider>
   );
 }
 
