@@ -1,14 +1,32 @@
 import React, { useState } from "react";
 import { Hexagon } from "./hexagon";
 import { useMandatorySubjects } from "../context/mandatoryContext";
+import { useHumanidadesSubjects } from "../context/humanidadesContext";
+import { useScienceSubjects } from "../context/scienceContext";
+import { useStatisticsSubjects } from "../context/statisticsContext";
+import { useElectiveSubjects } from "../context/electiveContext";
 
 export const SubjectIcon = (props) => {
   const { setMandatorySubjects } = useMandatorySubjects();
+  const { setElectiveSubjects } = useElectiveSubjects();
+
+  const { setHumanidadesSubjects } = useHumanidadesSubjects();
+  const { setScienceSubjects } = useScienceSubjects();
+  const { setStatisticsSubjects } = useStatisticsSubjects();
+
   const [done, setDone] = useState(false);
 
   const handleClick = () => {
     if (props.type === "mandatory") {
       setMandatorySubjects(props.subjectCode);
+    } else if (props.type === "human") {
+      setHumanidadesSubjects(props.subjectCode);
+    } else if (props.type === "science") {
+      setScienceSubjects(props.subjectCode);
+    } else if (props.type === "statistics") {
+      setStatisticsSubjects(props.subjectCode);
+    } else if (props.type === "elective") {
+      setElectiveSubjects(props.subjectCode);
     }
 
     done ? setDone(false) : setDone(true);
