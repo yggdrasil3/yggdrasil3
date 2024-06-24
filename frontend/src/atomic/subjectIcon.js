@@ -38,13 +38,14 @@ export const SubjectIcon = (props) => {
         padding: "16px 0",
         position: "relative",
         width: "186px",
+        cursor: "pointer",
       }}
       onClick={handleClick}
     >
       <Hexagon
         width="186"
         color="white"
-        shadow={`drop-shadow(0px 16px 0px ${props.color})`}
+        shadow={`drop-shadow(0px 16px 0px ${done ? props.color : "#F0F0F0"})`}
       />
       <div
         width="186px"

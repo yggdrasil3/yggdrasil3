@@ -1,4 +1,3 @@
-import "./App.css";
 import { GlobalStatus } from "./components/globalStatus";
 import { Nav } from "./components/nav";
 import { ObrigatoriasSection } from "./components/obrigatoriasSection";
@@ -13,9 +12,8 @@ import { HumanidadesSubjectsProvider } from "./context/humanidadesContext";
 import { MandatorySubjectsProvider } from "./context/mandatoryContext";
 import { ScienceSubjectsProvider } from "./context/scienceContext";
 import { StatisticsSubjectsProvider } from "./context/statisticsContext";
-import { Login } from "./login";
 
-function App() {
+export const Home = () => {
   return (
     <HumanidadesSubjectsProvider>
       <ScienceSubjectsProvider>
@@ -27,7 +25,6 @@ function App() {
                 <div id="Dashboard">
                   <GlobalStatus />
                   <OptativasStatus />
-                  <Login />
                 </div>
                 <div id="Obrigatórias">
                   <ObrigatoriasSection />
@@ -45,6 +42,4 @@ function App() {
       </ScienceSubjectsProvider>
     </HumanidadesSubjectsProvider>
   );
-}
-
-export default App;
+};
