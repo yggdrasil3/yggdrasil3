@@ -14,26 +14,35 @@ export const Login = () => {
         }}
       >
         <div>
-          <h2>Login</h2>
-          <form>
+          <h2>Entrar</h2>
+          <form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <label>Username:</label>
             <input />
-            <br />
             <label>Password:</label>
             <input type="password" />
+            <button type="submit">Enviar</button>
           </form>
         </div>
         <div>
           <h2>Cadastro</h2>
-          <form>
+          <form
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <label>Username:</label>
             <input />
-            <br />
             <label>Senha:</label>
             <input type="password" />
-            <br />
             <label>Confirme a senha:</label>
             <input type="password" />
+            <button type="submit">Enviar</button>
           </form>
         </div>
       </div>
