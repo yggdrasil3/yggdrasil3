@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Hexagon } from "./hexagon";
 import { useMandatorySubjects } from "../context/mandatoryContext";
 import { useHumanidadesSubjects } from "../context/humanidadesContext";
@@ -7,12 +7,14 @@ import { useStatisticsSubjects } from "../context/statisticsContext";
 import { useElectiveSubjects } from "../context/electiveContext";
 
 export const SubjectIcon = (props) => {
-  const { setMandatorySubjects } = useMandatorySubjects();
-  const { setElectiveSubjects } = useElectiveSubjects();
+  const { getMandatorySubjects, setMandatorySubjects } = useMandatorySubjects();
+  const { getElectiveSubjects, setElectiveSubjects } = useElectiveSubjects();
 
-  const { setHumanidadesSubjects } = useHumanidadesSubjects();
-  const { setScienceSubjects } = useScienceSubjects();
-  const { setStatisticsSubjects } = useStatisticsSubjects();
+  const { getHumanidadesSubjects, setHumanidadesSubjects } =
+    useHumanidadesSubjects();
+  const { getScienceSubjects, setScienceSubjects } = useScienceSubjects();
+  const { getStatisticsSubjects, setStatisticsSubjects } =
+    useStatisticsSubjects();
 
   const [done, setDone] = useState(false);
 
@@ -32,6 +34,20 @@ export const SubjectIcon = (props) => {
     done ? setDone(false) : setDone(true);
   };
 
+  useEffect(() => {
+    if (getMandatorySubjects().includes(props.subjectCode)) setDone(true);
+    if (getElectiveSubjects().includes(props.subjectCode)) setDone(true);
+    if (getHumanidadesSubjects().includes(props.subjectCode)) setDone(true);
+    if (getScienceSubjects().includes(props.subjectCode)) setDone(true);
+    if (getStatisticsSubjects().includes(props.subjectCode)) setDone(true);
+  }, [
+    getMandatorySubjects,
+    getElectiveSubjects,
+    getHumanidadesSubjects,
+    getScienceSubjects,
+    getStatisticsSubjects,
+    props.subjectCode,
+  ]);
   return (
     <div
       style={{

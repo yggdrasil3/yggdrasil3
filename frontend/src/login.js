@@ -1,4 +1,12 @@
+import { useMandatorySubjects } from "./context/mandatoryContext";
+
 export const Login = () => {
+  const { setMandatorySubjects } = useMandatorySubjects();
+
+  const handleLogin = () => {
+    setMandatorySubjects("MAC0101");
+  };
+
   return (
     <div
       style={{
@@ -25,7 +33,7 @@ export const Login = () => {
             <input />
             <label>Password:</label>
             <input type="password" />
-            <button type="submit">Enviar</button>
+            <button onClick={handleLogin}>Enviar</button>
           </form>
         </div>
         <div>

@@ -9,11 +9,6 @@ export const GlobalStatus = () => {
   const { getElectiveSubjects } = useElectiveSubjects();
   const { getFreeSubjects } = useFreeSubjects();
 
-  useEffect(() => {
-    console.log(getMandatorySubjects().length.toString());
-    console.log(getMandatorySubjects());
-  }, [getMandatorySubjects]);
-
   return (
     <div
       style={{

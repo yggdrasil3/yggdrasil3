@@ -10,7 +10,10 @@ import { OptativasStatus } from "./components/optativasStatus";
 import { ElectiveSubjectsProvider } from "./context/electiveContext";
 import { FreeSubjectsProvider } from "./context/freeContext";
 import { HumanidadesSubjectsProvider } from "./context/humanidadesContext";
-import { MandatorySubjectsProvider } from "./context/mandatoryContext";
+import {
+  MandatorySubjectsProvider,
+  useMandatorySubjects,
+} from "./context/mandatoryContext";
 import { ScienceSubjectsProvider } from "./context/scienceContext";
 import { StatisticsSubjectsProvider } from "./context/statisticsContext";
 import { Login } from "./login";
