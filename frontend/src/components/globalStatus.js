@@ -28,20 +28,20 @@ export const GlobalStatus = () => {
       <CreditBar
         creditType="Obrigatória"
         color="#0D75FD"
-        creditEarned={getMandatorySubjects().length.toString()}
-        creditRequired="111"
+        creditEarned={getMandatorySubjects().length}
+        creditRequired={111}
       />
       <CreditBar
         creditType="Eletiva"
         color="#00D0FF"
-        creditEarned={getElectiveSubjects().length.toString()}
-        creditRequired="56"
+        creditEarned={getElectiveSubjects().length}
+        creditRequired={56}
       />
       <CreditBar
         creditType="Livre"
         color="#00E1CF"
-        creditEarned={getFreeSubjects().length.toString()}
-        creditRequired="24"
+        creditEarned={getFreeSubjects().length}
+        creditRequired={24}
       />
     </div>
   );

@@ -14,7 +14,11 @@ export const CreditBar = (props) => {
       }}
     >
       <div style={{ marginBottom: "8px" }}>{props.creditType}</div>
-      <Loadingbar color={props.color} />
+      <Loadingbar
+        creditEarned={props.creditEarned}
+        creditRequired={props.creditRequired}
+        color={props.color}
+      />
       <CreditCount
         color={props.color}
         creditEarned={props.creditEarned}
