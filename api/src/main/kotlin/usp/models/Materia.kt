@@ -4,11 +4,11 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Materia (
-    val codigo: String,
-    val tipo: String,
-    val creditoAula: Int,
-    val creditoTrabalho: Int,
-    val nome: String,
+    var codigo: String,
+    var tipo: String,
+    var creditoAula: Int,
+    var creditoTrabalho: Int,
+    var nome: String,
 )
 
 val materias = mutableListOf<Materia>()

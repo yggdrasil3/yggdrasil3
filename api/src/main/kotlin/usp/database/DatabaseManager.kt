@@ -2,6 +2,7 @@ package usp.database
 
 import org.ktorm.database.*
 import org.ktorm.entity.*
+import usp.models.*
 
 class DatabaseManager {
     private val hostname = "localhost"
@@ -19,6 +20,20 @@ class DatabaseManager {
 
     fun getAllMaterias(): List<DBMateriaEntity> {
         return ktormDatabase.sequenceOf(DBMateriaTable).toList()
+    }
+
+    fun addMateria(materia: Materia): Materia {
+        val dbMateria = DBMateriaEntity {
+            this.codigo = materia.codigo
+            this.tipo = materia.tipo
+            this.creditoAula = materia.creditoAula
+            this.creditoTrabalho = materia.creditoTrabalho
+            this.nome = materia.nome
+        }
+
+        ktormDatabase.sequenceOf(DBMateriaTable).add(dbMateria)
+
+        return materia
     }
 
 }

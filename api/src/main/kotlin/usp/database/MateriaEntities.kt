@@ -5,19 +5,19 @@ import org.ktorm.entity.Entity
 import usp.database.DBMateriaTable.bindTo
 
 object DBMateriaTable: Table<DBMateriaEntity>("materia") {
-    val codigo = varchar("codigo").primaryKey().bindTo { it.codigo }
-    val tipo = varchar("tipo").bindTo { it.tipo }
-    val creditoAula = int("creditoAula").bindTo { it.creditoAula }
-    val creditoTrabalho = int("creditoTrabalho").bindTo { it.creditoTrabalho }
-    val nome = varchar("nome").bindTo { it.nome }
+    var codigo = varchar("codigo").primaryKey().bindTo { it.codigo }
+    var tipo = varchar("tipo").bindTo { it.tipo }
+    var creditoAula = int("creditoAula").bindTo { it.creditoAula }
+    var creditoTrabalho = int("creditoTrabalho").bindTo { it.creditoTrabalho }
+    var nome = varchar("nome").bindTo { it.nome }
 }
 
 interface DBMateriaEntity: Entity<DBMateriaEntity> {
     companion object : Entity.Factory<DBMateriaEntity>()
 
-    val codigo: String
-    val tipo: String
-    val creditoAula: Int
-    val creditoTrabalho: Int
-    val nome: String
+    var codigo: String
+    var tipo: String
+    var creditoAula: Int
+    var creditoTrabalho: Int
+    var nome: String
 }
