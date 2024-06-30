@@ -5,10 +5,8 @@ import java.util.*
 
 @Serializable
 data class Aluno (
-    val id: String,
-    val nome: String,
+    val senha: String,
     val nusp: String,
-    val emailUSP: String,
 );
 
 val alunos = mutableListOf<Aluno>()

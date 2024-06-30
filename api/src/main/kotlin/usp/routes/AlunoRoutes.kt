@@ -19,9 +19,9 @@ fun Route.alunoRoutes() {
             }
         }
 
-        get("/{id}") {
-            val id = call.parameters["id"] ?: return@get call.respondText("Missing or malformed id", status = HttpStatusCode.BadRequest)
-            val aluno = alunos.find { it.id == id } ?: return@get call.respondText("No Alunos", status = HttpStatusCode.NotFound)
+        get("/{nusp}") {
+            val nusp = call.parameters["nusp"] ?: return@get call.respondText("Missing or malformed nusp", status = HttpStatusCode.BadRequest)
+            val aluno = alunos.find { it.nusp == nusp } ?: return@get call.respondText("No Alunos", status = HttpStatusCode.NotFound)
 
             call.respond(aluno)
         }
@@ -32,11 +32,11 @@ fun Route.alunoRoutes() {
             call.respond("Aluno criado com sucesso.")
         }
 
-        delete("/{id}") {
-            val id = call.parameters["id"] ?: return@delete call.respondText("Invalid request", status = HttpStatusCode.BadRequest)
+        delete("/{nusp}") {
+            val nusp = call.parameters["nusp"] ?: return@delete call.respondText("Invalnusp request", status = HttpStatusCode.BadRequest)
 
-            if (alunos.removeIf { it.id == id }) {
-                call.respondText("Aluno removido com sucesso.", status = HttpStatusCode.Accepted)
+            if (alunos.removeIf { it.nusp == nusp }) {
+                call.respondText("Aluno removnuspo com sucesso.", status = HttpStatusCode.Accepted)
             }
             else call.respondText("Aluno não encontrado.", status = HttpStatusCode.NotFound)
         }

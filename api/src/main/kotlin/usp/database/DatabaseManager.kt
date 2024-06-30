@@ -1,7 +1,7 @@
 package usp.database
 
 import org.ktorm.database.*
-import org.ktorm.entity.sequenceOf
+import org.ktorm.entity.*
 
 class DatabaseManager {
     private val hostname = "localhost"
