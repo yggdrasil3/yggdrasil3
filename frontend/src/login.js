@@ -1,10 +1,39 @@
+import { useElectiveSubjects } from "./context/electiveContext";
+import { useHumanidadesSubjects } from "./context/humanidadesContext";
 import { useMandatorySubjects } from "./context/mandatoryContext";
+import { useScienceSubjects } from "./context/scienceContext";
+import { useStatisticsSubjects } from "./context/statisticsContext";
+import { useUser } from "./context/userContext";
 
 export const Login = () => {
-  const { setMandatorySubjects } = useMandatorySubjects();
+  const { user, setUser } = useUser();
 
-  const handleLogin = () => {
-    setMandatorySubjects("MAC0101");
+  const { getMandatorySubjects, setMandatorySubjects } = useMandatorySubjects();
+  const { getElectiveSubjects, setElectiveSubjects } = useElectiveSubjects();
+
+  const { getHumanidadesSubjects, setHumanidadesSubjects } =
+    useHumanidadesSubjects();
+  const { getScienceSubjects, setScienceSubjects } = useScienceSubjects();
+  const { getStatisticsSubjects, setStatisticsSubjects } =
+    useStatisticsSubjects();
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    setUser({
+      name: "Jonathas",
+      mandatorySubjects: ["MAC0101"],
+      electiveSubjects: ["MAC0328"],
+      humanidadeSubjects: [],
+      scienceSubjects: [],
+      statisticsSubjects: [],
+    });
+
+    user.mandatorySubjects.forEach((code) => setMandatorySubjects(code));
+    user.electiveSubjects.forEach((code) => setElectiveSubjects(code));
+    user.humanidadeSubjects.forEach((code) => setHumanidadesSubjects(code));
+    user.scienceSubjects.forEach((code) => setScienceSubjects(code));
+    user.statisticsSubjects.forEach((code) => setStatisticsSubjects(code));
   };
 
   return (
@@ -33,7 +62,7 @@ export const Login = () => {
             <input />
             <label>Password:</label>
             <input type="password" />
-            <button onClick={handleLogin}>Enviar</button>
+            <button onClick={(e) => handleLogin(e)}>Enviar</button>
           </form>
         </div>
         <div>
